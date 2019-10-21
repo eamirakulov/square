@@ -2,13 +2,13 @@
 // Include the Square Connect API resources
 require_once(__DIR__ . '/connect-php-sdk-master/autoload.php');
 //Replace your access token and location ID
-$accessToken = 'EAAAEEm-YY1h36x93pFrgvlZkTxg1SJgFNML5uXfr_HEXjQpVKvDynSKm60gVz5r';
-$locationId = 'M4HM2XA033Z9A';
+$accessToken = 'EAAAEFowcf8rZ2a7k19hYhzqUbKwAG5KgYz8Gn7uLjVs0ZttPgsysqj1p0pX4Szi';
+$locationId = 'AEDNZHJ9X9W53';
 
 // Create and configure a new API client object
 $defaultApiConfig = new \SquareConnect\Configuration();
 $defaultApiConfig->setAccessToken($accessToken);
-$defaultApiConfig->setHost("https://connect.squareupsandbox.com");
+$defaultApiConfig->setHost("https://connect.squareup.com");
 $defaultApiClient = new \SquareConnect\ApiClient($defaultApiConfig);
 $checkoutClient = new SquareConnect\Api\CheckoutApi($defaultApiClient);
 
