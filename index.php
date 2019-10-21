@@ -14,24 +14,30 @@ $checkoutClient = new SquareConnect\Api\CheckoutApi($defaultApiClient);
 
 var_dump($_POST['info']);
 
-foreach($_POST['info'] as $item) {
-	echo $item['title'];
-}
-//Create a Money object to represent the price of the line item.
-$price = new \SquareConnect\Model\Money;
-$price->setAmount(2);
-$price->setCurrency('USD');
-
-//Create the line item and set details
-$book = new \SquareConnect\Model\CreateOrderRequestLineItem;
-$book->setName('The Shining');
-$book->setQuantity('2');
-$book->setBasePriceMoney($price);
 
 //Puts our line item object in an array called lineItems.
 $lineItems = array(
 );
-array_push($lineItems, $book);
+foreach($_POST['info'] as $item) {
+	echo $item['title'];
+	echo "<br>";
+	echo $item['line_price'];
+	echo "<br>";
+	echo $item['quantity'];
+
+	//Create a Money object to represent the price of the line item.
+	$price = new \SquareConnect\Model\Money;
+	$price->setAmount($item['line_price'] * 100);
+	$price->setCurrency('USD');
+
+	//Create the line item and set details
+	$book = new \SquareConnect\Model\CreateOrderRequestLineItem;
+	$book->setName($item['title']);
+	$book->setQuantity($item['quantity']);
+	$book->setBasePriceMoney($price);
+	array_push($lineItems, $book);
+}
+
 
 
 // Create an Order object using line items from above
