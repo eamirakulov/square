@@ -13,6 +13,10 @@ $defaultApiClient = new \SquareConnect\ApiClient($defaultApiConfig);
 $checkoutClient = new SquareConnect\Api\CheckoutApi($defaultApiClient);
 
 var_dump($_POST['info']);
+
+foreach($_POST['info'] as $item) {
+	echo $item->title;
+}
 //Create a Money object to represent the price of the line item.
 $price = new \SquareConnect\Model\Money;
 $price->setAmount(2);
