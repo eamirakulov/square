@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['username']) && $_POST['username'] && isset($_POST['password']) && $_POST['password']) {
+if (isset($_POST['username'])) {
     // do user authentication as per your requirements
     // ...
     // ...
@@ -9,12 +9,3 @@ if (isset($_POST['username']) && $_POST['username'] && isset($_POST['password'])
     echo json_encode(array('success' => 0));
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Square</title>
-</head>
-<body>
-<div>content</div>
-</body>
-</html>
