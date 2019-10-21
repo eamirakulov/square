@@ -46,7 +46,7 @@ $price->setCurrency('USD');
 //Shipping line item
 $book = new \SquareConnect\Model\CreateOrderRequestLineItem;
 $book->setName('Shipping');
-$book->setQuantity(1);
+$book->setQuantity('1');
 $book->setBasePriceMoney($price);
 array_push($lineItems, $book);
 
