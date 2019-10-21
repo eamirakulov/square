@@ -1,5 +1,4 @@
 <?php
-
 // Include the Square Connect API resources
 require_once(__DIR__ . '/connect-php-sdk-master/autoload.php');
 //Replace your access token and location ID
@@ -13,7 +12,7 @@ $defaultApiConfig->setHost("https://connect.squareupsandbox.com");
 $defaultApiClient = new \SquareConnect\ApiClient($defaultApiConfig);
 $checkoutClient = new SquareConnect\Api\CheckoutApi($defaultApiClient);
 
-echo $_POST['info'];
+var_dump($_POST['info']);
 //Create a Money object to represent the price of the line item.
 $price = new \SquareConnect\Model\Money;
 $price->setAmount(2);
