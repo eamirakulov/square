@@ -55,7 +55,7 @@ $checkout = new \SquareConnect\Model\CreateCheckoutRequest();
 
 $checkout->setIdempotencyKey(uniqid()); //uniqid() generates a random string.
 $checkout->setOrder($order); //this is the order we created in the previous step.
-$checkout->setRedirectUrl('http://www.google.com'); //Replace with the URL where you want to redirect your customers after transaction. 
+$checkout->setRedirectUrl($_POST['return_url']); //Replace with the URL where you want to redirect your customers after transaction. 
 
 //////
 try {
