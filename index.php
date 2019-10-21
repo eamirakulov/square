@@ -27,7 +27,7 @@ foreach($_POST['info'] as $item) {
 
 	//Create a Money object to represent the price of the line item.
 	$price = new \SquareConnect\Model\Money;
-	$price->setAmount($item['line_price'] * 100);
+	$price->setAmount($item['line_price']  * 100);
 	$price->setCurrency('USD');
 
 	//Create the line item and set details
@@ -38,7 +38,17 @@ foreach($_POST['info'] as $item) {
 	array_push($lineItems, $book);
 }
 
+//Shipping money obj
+$price = new \SquareConnect\Model\Money;
+$price->setAmount($_POST['shipping'] * 100);
+$price->setCurrency('USD');
 
+//Shipping line item
+$book = new \SquareConnect\Model\CreateOrderRequestLineItem;
+$book->setName('Shipping');
+$book->setQuantity(1);
+$book->setBasePriceMoney($price);
+array_push($lineItems, $book);
 
 // Create an Order object using line items from above
 $order = new \SquareConnect\Model\CreateOrderRequest();
