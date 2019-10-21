@@ -76,17 +76,8 @@ try {
     $checkoutId = $result->getCheckout()->getId();
     //Get the checkout URL that opens the checkout page.
     $checkoutUrl = $result->getCheckout()->getCheckoutPageUrl();
-    print_r('Complete your transaction: <a href="'. $checkoutUrl .'">' . $checkoutUrl . '</a>');
+    print_r('Complete your transaction: ' . $checkoutUrl);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->createCheckout: ', $e->getMessage(), PHP_EOL;
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Square</title>
-</head>
-<body>
-<div>content</div>
-</body>
-</html>
