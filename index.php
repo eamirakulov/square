@@ -12,19 +12,10 @@ $defaultApiConfig->setHost("https://connect.squareupsandbox.com");
 $defaultApiClient = new \SquareConnect\ApiClient($defaultApiConfig);
 $checkoutClient = new SquareConnect\Api\CheckoutApi($defaultApiClient);
 
-var_dump($_POST['info']);
-
-
 //Puts our line item object in an array called lineItems.
 $lineItems = array(
 );
 foreach($_POST['info'] as $item) {
-	echo $item['title'];
-	echo "<br>";
-	echo $item['line_price'];
-	echo "<br>";
-	echo $item['quantity'];
-
 	//Create a Money object to represent the price of the line item.
 	$price = new \SquareConnect\Model\Money;
 	$price->setAmount($item['line_price']  * 100);
