@@ -1,6 +1,6 @@
 <?php
 // Include the Square Connect API resources
-require_once(__DIR__ . '/connect-php-sdk-master/autoload.php');
+require_once(__DIR__ . '/var/www/html/square/connect-php-sdk-master/autoload.php');
 //Replace your access token and location ID
 $accessToken = 'EAAAEEm-YY1h36x93pFrgvlZkTxg1SJgFNML5uXfr_HEXjQpVKvDynSKm60gVz5r';
 $locationId = 'M4HM2XA033Z9A';
