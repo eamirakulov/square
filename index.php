@@ -67,7 +67,7 @@ try {
     $checkoutId = $result->getCheckout()->getId();
     //Get the checkout URL that opens the checkout page.
     $checkoutUrl = $result->getCheckout()->getCheckoutPageUrl();
-    print_r($checkoutUrl);
+    //print_r($checkoutUrl);
     echo json_encode(array('url' => $checkoutUrl));
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->createCheckout: ', $e->getMessage(), PHP_EOL;
