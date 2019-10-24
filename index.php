@@ -52,7 +52,7 @@ $order->setLineItems($lineItems);
 //set discount
 $discount_test = new \SquareConnect\Model\OrderLineItemDiscount();
 $discount_test -> setName($_POST['discount_code']);
-$discount_test -> setPercentage($_POST['discount_rate'] * 100);
+$discount_test -> setPercentage(strval($_POST['discount_rate'] * 100));
 
 $ds = array();
 
