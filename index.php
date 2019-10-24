@@ -25,7 +25,7 @@ foreach($_POST['info'] as $item) {
 	$book = new \SquareConnect\Model\CreateOrderRequestLineItem;
 	$book->setName($item['title']);
 	$book->setQuantity($item['quantity']);
-	$book->setBasePriceMoney($price);
+	$book->setBasePriceMoney($price / $item['quantity']);
 
     //set discount
     $discount_test = new \SquareConnect\Model\OrderLineItemDiscount();
