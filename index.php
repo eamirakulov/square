@@ -48,9 +48,16 @@ $order->setIdempotencyKey(uniqid()); //uniqid() generates a random string.
 
 //sets the lineItems array in the order object
 $order->setLineItems($lineItems);
-//$order->setDiscounts('100');
 
-//var_dump($order);
+//set discount
+$discount_test = new \SquareConnect\Model\OrderLineItemDiscount();
+$discount_test -> setName($_POST['discount_code']);
+$discount_test -> setPercentage($_POST['discount_rate'] * 100);
+
+$ds = array();
+
+array_push($ds, $discount_test);
+$order->setDiscounts($ds);
 
 //////
 ///Create Checkout request object.
