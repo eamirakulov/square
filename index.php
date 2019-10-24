@@ -26,6 +26,16 @@ foreach($_POST['info'] as $item) {
 	$book->setName($item['title']);
 	$book->setQuantity($item['quantity']);
 	$book->setBasePriceMoney($price);
+
+    //set discount
+    $discount_test = new \SquareConnect\Model\OrderLineItemDiscount();
+    $discount_test -> setName($_POST['discount_code']);
+    $discount_test -> setPercentage(strval($_POST['discount_rate'] * 100));
+
+    $ds = array();
+    array_push($ds, $discount_test);
+    $book->setDiscounts($ds);
+
 	array_push($lineItems, $book);
 }
 
@@ -48,16 +58,6 @@ $order->setIdempotencyKey(uniqid()); //uniqid() generates a random string.
 
 //sets the lineItems array in the order object
 $order->setLineItems($lineItems);
-
-//set discount
-$discount_test = new \SquareConnect\Model\OrderLineItemDiscount();
-$discount_test -> setName($_POST['discount_code']);
-$discount_test -> setPercentage(strval($_POST['discount_rate'] * 100));
-
-$ds = array();
-
-array_push($ds, $discount_test);
-$order->setDiscounts($ds);
 
 //////
 ///Create Checkout request object.
