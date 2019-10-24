@@ -48,6 +48,9 @@ $order->setIdempotencyKey(uniqid()); //uniqid() generates a random string.
 
 //sets the lineItems array in the order object
 $order->setLineItems($lineItems);
+$order->setDiscounts('100');
+
+var_dump($order);
 
 //////
 ///Create Checkout request object.
