@@ -18,14 +18,14 @@ $lineItems = array(
 foreach($_POST['info'] as $item) {
 	//Create a Money object to represent the price of the line item.
 	$price = new \SquareConnect\Model\Money;
-	$price->setAmount($item['line_price']  * 100);
+	$price->setAmount(($item['line_price']  * 100) / $item['quantity']);
 	$price->setCurrency('USD');
 
 	//Create the line item and set details
 	$book = new \SquareConnect\Model\CreateOrderRequestLineItem;
 	$book->setName($item['title']);
 	$book->setQuantity($item['quantity']);
-	$book->setBasePriceMoney($price / $item['quantity']);
+	$book->setBasePriceMoney($price);
 
     //set discount
     $discount_test = new \SquareConnect\Model\OrderLineItemDiscount();
