@@ -51,6 +51,18 @@ $book->setQuantity('1');
 $book->setBasePriceMoney($price);
 array_push($lineItems, $book);
 
+//Tax money obj
+$price = new \SquareConnect\Model\Money;
+$price->setAmount($_POST['total_tax'] * 100);
+$price->setCurrency('USD');
+
+//Tax line item
+$book = new \SquareConnect\Model\CreateOrderRequestLineItem;
+$book->setName('Tax');
+$book->setQuantity('1');
+$book->setBasePriceMoney($price);
+array_push($lineItems, $book);
+
 // Create an Order object using line items from above
 $order = new \SquareConnect\Model\CreateOrderRequest();
 
